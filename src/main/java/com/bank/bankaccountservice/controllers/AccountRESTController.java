@@ -4,11 +4,13 @@ import com.bank.bankaccountservice.entities.BankAccount;
 import com.bank.bankaccountservice.repositories.BankAccountRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(path="/bank")
 public class AccountRESTController {
     private BankAccountRepository bankAccountRepository;
     public AccountRESTController(BankAccountRepository bankAccountRepository) {
