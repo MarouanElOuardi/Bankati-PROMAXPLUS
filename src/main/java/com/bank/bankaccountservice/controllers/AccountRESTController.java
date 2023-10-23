@@ -1,6 +1,7 @@
 package com.bank.bankaccountservice.controllers;
 
 import com.bank.bankaccountservice.entities.BankAccount;
+import com.bank.bankaccountservice.enums.AccountType;
 import com.bank.bankaccountservice.repositories.BankAccountRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,10 @@ public class AccountRESTController {
         BankAccount account=bankAccountRepository.findById(id).get();
         bankAccountRepository.deleteById(id);
         return account;
+    }
+    @GetMapping("/bankAccounts/search/accountType")
+    public List<BankAccount> searchByAccountType(@RequestParam(name = "accountType") String accountType) {
+        return bankAccountRepository.findByAccountType(AccountType.valueOf(accountType));
     }
 
 
