@@ -12,6 +12,7 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface BankAccountRepository extends JpaRepository<BankAccount, String>{
+    //http://localhost:8081/bankAccounts/search/byAccountType?t=SAVINGS_ACCOUNT
     @RestResource(path="/byAccountType")
     List<BankAccount> findByAccountType(@Param("t") AccountType accountType);
 
